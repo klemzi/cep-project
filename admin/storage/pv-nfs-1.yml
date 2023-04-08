@@ -4,7 +4,7 @@ metadata:
   name: nfs-pv-1
 spec:
   capacity:
-    storage: 4GB
+    storage: 4Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
