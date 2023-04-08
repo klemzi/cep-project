@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv-1
+spec:
+  capacity:
+    storage: 4GB
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /opt/db
+    server: 172.31.28.239 # node 2 IP
+    readOnly: false

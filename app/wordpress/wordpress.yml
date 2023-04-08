@@ -1,0 +1,81 @@
+# Wordpress deployment yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+    tier: frontend
+  namespace: cep-project1
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: frontend
+    spec:
+      initContainers:
+        - image: busybox:1.28
+          name: init-db
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: cep-config
+                  key: DB_HOST
+          command:
+            - sh
+            - -c
+            - |
+              until nslookup ${DB_HOST};
+              do
+                echo waiting for ${DB_HOST};
+                sleep 3;
+              done
+      containers:
+        - image: wordpress:6.2-apache
+          name: wordpress
+          env:
+            - name: WORDPRESS_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: cep-config
+                  key: DB_HOST
+            - name: WORDPRESS_DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: cep-config
+                  key: DB_NAME
+            - name: WORDPRESS_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: cep-secrets
+                  key: mysql-user
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cep-secrets
+                  key: mysql-pwd
+          ports:
+            - containerPort: 80
+              name: wordpress
+          resources:
+            limits:
+              cpu: 800m
+              memory: 700Mi
+            requests:
+              cpu: 500m
+              memory: 500Mi
+          volumeMounts:
+            - name: wp-store
+              mountPath: /var/www/html
+      volumes:
+        - name: wp-store
+          persistentVolumeClaim:
+            claimName: wp-pv-claim

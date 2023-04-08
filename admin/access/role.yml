@@ -1,0 +1,13 @@
+# generated with command k create role cep-admin --verb=* --resource=* --dry-run=client -n cep-project1 -o yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: cep-project1
+  name: cep-admin
+rules:
+- apiGroups: 
+  - "" # "" indicates the core API group
+  resources: 
+    - "*" # all resources
+  verbs:
+    - "*" # all actions allowed

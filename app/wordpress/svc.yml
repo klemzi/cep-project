@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp-service
+  namespace: cep-project1
+spec:
+  selector:
+    app: wordpress
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 31030
+  type: NodePort
