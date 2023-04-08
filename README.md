@@ -68,4 +68,5 @@ sudo apt update && sudo apt install nfs-kernel-server
 
 #### create pv for the nfs storage so that the application can claim it.
 `k apply -f pv-nfs-1.yml`
+
 `k apply -f pv-nfs-2.yml`
