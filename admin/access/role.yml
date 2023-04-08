@@ -5,9 +5,9 @@ metadata:
   namespace: cep-project1
   name: cep-admin
 rules:
-- apiGroups: 
-  - "" # "" indicates the core API group
-  resources: 
-    - "*" # all resources
-  verbs:
-    - "*" # all actions allowed
+  - apiGroups:
+      - "*"
+    resources:
+      - "*"
+    verbs:
+      - "*"

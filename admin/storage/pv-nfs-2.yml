@@ -10,5 +10,6 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /opt/wp
-    server: 172.31.28.239 # node 2 IP
+    server: 172.31.28.239
     readOnly: false
+

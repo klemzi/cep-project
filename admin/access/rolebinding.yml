@@ -8,6 +8,6 @@ roleRef:
   kind: Role
   name: cep-admin
 subjects:
-- kind: ServiceAccount
-  name: sandry
-  namespace: cep-project1
+  - kind: ServiceAccount
+    name: sandry
+    namespace: cep-project1
