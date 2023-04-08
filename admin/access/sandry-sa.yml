@@ -1,0 +1,6 @@
+# generated with k create sa sandry -n cep-project1 --dry-run=client -o yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sandry
+  namespace: cep-project1
