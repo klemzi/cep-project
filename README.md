@@ -3,9 +3,9 @@ SimpliLearn PG - Kubernetes coures project (Kubernetes Dashboard)
 
 ## Cluster Admin Setup
 
-1. Create cep-project directory - `mkdir cep-project && cd cep-project`
+1. Clone this repo in your $HOME directory and go to the cep-project/admin/access directory - `git clone https://github.com/klemzi/cep-project.git && cd cep-project/admin/access`
 
-2. Copy the admin files into this folder - `ls ./`
+2. List ythe files this folder - `ls ./`
 
 3. Apply the role yaml - `k apply -f role.yaml`
 

@@ -5,6 +5,7 @@ metadata:
   name: mysql
   labels:
     app: wordpress
+    tier: db
   namespace: cep-project1
 spec:
   selector:
