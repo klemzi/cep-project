@@ -1,4 +1,4 @@
-# cep-project
+# cep-project 1
 SimpliLearn PG - Kubernetes coures project (Kubernetes Dashboard)
 
 ## Cluster Admin Setup
