@@ -9,7 +9,7 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    path: /opt/wp
+    path: /mnt/wp
     server: 172.31.28.239
     readOnly: false
 

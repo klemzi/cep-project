@@ -9,6 +9,6 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    path: /opt/db
+    path: /mnt/db
     server: 172.31.28.239
     readOnly: false
